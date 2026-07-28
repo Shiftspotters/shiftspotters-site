@@ -2,11 +2,16 @@
 
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
-import { defineConfig, fontProviders } from 'astro/config';
+import { defineConfig, fontProviders, passthroughImageService } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://example.com',
+	site: 'https://shiftspotters.com',
+	image: {
+		// Static host (Cloudflare Pages) has no server for /_image runtime endpoint.
+		// passthroughImageService serves original files as-is; Cloudflare's CDN handles delivery.
+		service: passthroughImageService(),
+	},
 	integrations: [mdx(), sitemap()],
 	fonts: [
 		{
