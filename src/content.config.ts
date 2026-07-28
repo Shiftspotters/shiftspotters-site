@@ -13,6 +13,9 @@ const blog = defineCollection({
 			// Transform string to Date object
 			pubDate: z.coerce.date(),
 			updatedDate: z.coerce.date().optional(),
+			// Required: About page commits to showing this on every article.
+			// Update whenever the article's factual claims are re-verified against current reality.
+			lastFactChecked: z.coerce.date(),
 			heroImage: z.optional(image()),
 		}),
 });
