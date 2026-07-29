@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 290" role="img" aria-labelledby="wave-shapes-title wave-shapes-desc">
+  <title id="wave-shapes-title">Three shapes of multi-agent AI systems</title>
+  <desc id="wave-shapes-desc">Side-by-side comparison of three architectural patterns for multi-agent AI. Left: crew of peers with agents coordinating via string messages between every pair. Middle: state machine with explicit directed nodes and a decision loop. Right: one orchestrator delegating to structured in-context subagents.</desc>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#4a5568"/>
+    </marker>
+    <marker id="arrow-weak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#a0aec0"/>
+    </marker>
+  </defs>
+
+  <style>
+    .col-title { font: 600 15px system-ui, -apple-system, "Segoe UI", sans-serif; fill: #1a202c; text-anchor: middle; }
+    .col-sub { font: 12px system-ui, -apple-system, "Segoe UI", sans-serif; fill: #718096; text-anchor: middle; }
+    .agent { fill: #ffffff; stroke: #4a5568; stroke-width: 1.5; }
+    .orchestrator { fill: #ffffff; stroke: #2b6cb0; stroke-width: 2; }
+    .agent-label { font: 12px system-ui, -apple-system, "Segoe UI", sans-serif; fill: #2d3748; text-anchor: middle; dominant-baseline: central; }
+    .role-hint { font: 10px system-ui, -apple-system, "Segoe UI", sans-serif; fill: #718096; text-anchor: middle; dominant-baseline: central; }
+    .caption { font: italic 12px system-ui, -apple-system, "Segoe UI", sans-serif; fill: #718096; text-anchor: middle; }
+    .edge { stroke: #4a5568; stroke-width: 1.4; fill: none; }
+    .edge-weak { stroke: #a0aec0; stroke-width: 1; stroke-dasharray: 3,2; fill: none; }
+  </style>
+
+  <!-- Column 1: Crew of peers -->
+  <text class="col-title" x="130" y="24">Crew of peers</text>
+  <text class="col-sub" x="130" y="42">(the 2024 pitch)</text>
+
+  <rect class="agent" x="55" y="75" width="60" height="28" rx="5"/>
+  <text class="agent-label" x="85" y="89">Agent A</text>
+
+  <rect class="agent" x="175" y="75" width="60" height="28" rx="5"/>
+  <text class="agent-label" x="205" y="89">Agent B</text>
+
+  <rect class="agent" x="55" y="150" width="60" height="28" rx="5"/>
+  <text class="agent-label" x="85" y="164">Agent C</text>
+
+  <rect class="agent" x="175" y="150" width="60" height="28" rx="5"/>
+  <text class="agent-label" x="205" y="164">Agent D</text>
+
+  <!-- All-pairs message-passing arrows (dashed = fragile string channel) -->
+  <path class="edge-weak" d="M115,85 L175,85" marker-end="url(#arrow-weak)"/>
+  <path class="edge-weak" d="M175,93 L115,93" marker-end="url(#arrow-weak)"/>
+  <path class="edge-weak" d="M85,103 L85,150" marker-end="url(#arrow-weak)"/>
+  <path class="edge-weak" d="M205,103 L205,150" marker-end="url(#arrow-weak)"/>
+  <path class="edge-weak" d="M115,160 L175,160" marker-end="url(#arrow-weak)"/>
+  <path class="edge-weak" d="M175,168 L115,168" marker-end="url(#arrow-weak)"/>
+  <path class="edge-weak" d="M115,100 L175,150" marker-end="url(#arrow-weak)"/>
+  <path class="edge-weak" d="M175,100 L115,150" marker-end="url(#arrow-weak)"/>
+
+  <text class="caption" x="130" y="210">string messages</text>
+  <text class="caption" x="130" y="226">between every hop</text>
+
+  <!-- Column 2: State machine -->
+  <text class="col-title" x="400" y="24">State machine</text>
+  <text class="col-sub" x="400" y="42">(LangGraph)</text>
+
+  <rect class="agent" x="370" y="70" width="60" height="26" rx="5"/>
+  <text class="agent-label" x="400" y="83">plan</text>
+
+  <rect class="agent" x="370" y="115" width="60" height="26" rx="5"/>
+  <text class="agent-label" x="400" y="128">act</text>
+
+  <rect class="agent" x="370" y="160" width="60" height="26" rx="5"/>
+  <text class="agent-label" x="400" y="173">check</text>
+
+  <rect class="agent" x="465" y="160" width="60" height="26" rx="5"/>
+  <text class="agent-label" x="495" y="173">done</text>
+
+  <!-- forward chain -->
+  <path class="edge" d="M400,96 L400,115" marker-end="url(#arrow)"/>
+  <path class="edge" d="M400,141 L400,160" marker-end="url(#arrow)"/>
+  <!-- decision branch to done -->
+  <path class="edge" d="M430,173 L465,173" marker-end="url(#arrow)"/>
+  <!-- loop-back from check to plan -->
+  <path class="edge" d="M370,170 C335,170 335,83 370,83" marker-end="url(#arrow)"/>
+
+  <text class="caption" x="400" y="210">explicit states,</text>
+  <text class="caption" x="400" y="226">inspectable transitions</text>
+
+  <!-- Column 3: Orchestrator + subagents -->
+  <text class="col-title" x="660" y="24">Orchestrator + subagents</text>
+  <text class="col-sub" x="660" y="42">(Claude Code, Cursor, MS Agent Framework)</text>
+
+  <rect class="orchestrator" x="605" y="70" width="110" height="38" rx="6"/>
+  <text class="agent-label" x="660" y="86">Lead agent</text>
+  <text class="role-hint" x="660" y="99">(owns the plan)</text>
+
+  <rect class="agent" x="555" y="150" width="60" height="28" rx="5"/>
+  <text class="agent-label" x="585" y="164">Sub 1</text>
+
+  <rect class="agent" x="630" y="150" width="60" height="28" rx="5"/>
+  <text class="agent-label" x="660" y="164">Sub 2</text>
+
+  <rect class="agent" x="705" y="150" width="60" height="28" rx="5"/>
+  <text class="agent-label" x="735" y="164">Sub 3</text>
+
+  <!-- delegation arrows -->
+  <path class="edge" d="M625,108 L590,150" marker-end="url(#arrow)"/>
+  <path class="edge" d="M660,108 L660,150" marker-end="url(#arrow)"/>
+  <path class="edge" d="M695,108 L730,150" marker-end="url(#arrow)"/>
+
+  <text class="caption" x="660" y="210">in-session,</text>
+  <text class="caption" x="660" y="226">in-context delegation</text>
+</svg>
