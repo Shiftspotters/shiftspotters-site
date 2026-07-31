@@ -1,0 +1,20 @@
+# Shift Spotters
+
+> Field notes from watching the AI-tool ecosystem. Observational writeups on why specific tools, patterns, and orchestrators are winning or losing in production — focused on AI dev tools, agent frameworks, coding CLIs, and AI infrastructure. Each piece names a specific market shift and shows the evidence rather than surveying the category neutrally.
+
+## About
+
+- [About Shift Spotters](https://shiftspotters.com/about/): site scope, voice standard, and how pieces are researched and fact-checked.
+
+## Articles (newest first)
+
+- [LangGraph and the Agent-Framework Strategy That's Quietly Paying Off](https://shiftspotters.com/blog/langgraph-quiet-win/): By mid-2026, LangGraph is quietly winning enterprise share of the agent-framework race by narrowing what it claims to be — explicit control flow, durable state, honest cost. What that strategy could mean for CrewAI, Microsoft Agent Framework, and the next generation of entrants. Published 2026-07-30.
+
+- [The Multi-Agent Framework Wave Reshaped](https://shiftspotters.com/blog/multi-agent-wave-broke/): The 2024 multi-agent framework pitch lost the argument — but the category didn't collapse. It reshaped around one orchestrator plus structured delegation, with three winners occupying distinct niches as of mid-2026. Published 2026-07-29.
+
+- [tmux's Second Act](https://shiftspotters.com/blog/tmux-second-act/): A 2007 terminal tool was drifting into commodity decline. Then Claude Code picked it as substrate for multi-agent workflows — an example of a broader pattern where AI finds new use for infrastructure that already worked. Published 2026-07-28.
+
+## Feeds
+
+- [RSS feed](https://shiftspotters.com/rss.xml)
+- [Sitemap](https://shiftspotters.com/sitemap-index.xml)
