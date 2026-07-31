@@ -15,7 +15,16 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
 
 // lastFactChecked is required on blog posts and absent on the About page — use it to gate BlogPosting emission.
 const isBlogPost = Boolean(lastFactChecked);
-const schemaImage = new URL((heroImage ?? FallbackImage).src, Astro.site).toString();
+
+// When the article has a custom hero, use only that (we don't have multi-ratio variants of it).
+// When it falls back to the site's OG card, ship all three aspect ratios so Google can pick the best crop.
+const schemaImage = heroImage
+	? new URL(heroImage.src, Astro.site).toString()
+	: [
+			new URL(FallbackImage.src, Astro.site).toString(),
+			new URL('/og-fallback-4x3.svg', Astro.site).toString(),
+			new URL('/og-fallback-1x1.svg', Astro.site).toString(),
+		];
 const blogPostingSchema = isBlogPost
 	? {
 			'@context': 'https://schema.org',

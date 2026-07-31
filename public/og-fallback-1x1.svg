@@ -1,0 +1,21 @@
+<svg width="1200" height="1200" viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="1200" fill="#0d1117"/>
+  <circle cx="140" cy="120" r="12" fill="#484f58"/>
+  <circle cx="185" cy="120" r="12" fill="#484f58"/>
+  <circle cx="230" cy="120" r="12" fill="#484f58"/>
+  <g font-family="Consolas, 'JetBrains Mono', Menlo, monospace">
+    <text x="130" y="340" font-size="40" fill="#e6edf3">
+      <tspan fill="#7ee787">$</tspan> shift-spotters --about
+    </text>
+    <text x="170" y="540" font-size="32" fill="#7d8590">name</text>
+    <text x="380" y="540" font-size="32" fill="#e6edf3">Shift Spotters</text>
+    <text x="170" y="620" font-size="32" fill="#7d8590">focus</text>
+    <text x="380" y="620" font-size="32" fill="#e6edf3">AI-tool ecosystem</text>
+    <text x="170" y="700" font-size="32" fill="#7d8590">writing</text>
+    <text x="380" y="700" font-size="32" fill="#e6edf3">field notes, pattern-spotting, essays</text>
+    <text x="170" y="780" font-size="32" fill="#7d8590">audience</text>
+    <text x="380" y="780" font-size="32" fill="#e6edf3">devs first, everyone welcome</text>
+    <text x="130" y="1000" font-size="40" fill="#7ee787">$</text>
+  </g>
+  <rect x="168" y="975" width="20" height="30" fill="#e6edf3"/>
+</svg>
