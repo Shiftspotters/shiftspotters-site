@@ -45,7 +45,17 @@ const blogPostingSchema = isBlogPost
 
 <html lang="en">
 	<head>
-		<BaseHead title={title} description={description} />
+		<BaseHead
+			title={title}
+			description={description}
+			article={isBlogPost
+				? {
+						publishedTime: pubDate,
+						modifiedTime: updatedDate ?? pubDate,
+						author: SITE_TITLE,
+					}
+				: undefined}
+		/>
 		{blogPostingSchema && (
 			<script type="application/ld+json" set:html={JSON.stringify(blogPostingSchema)} />
 		)}
