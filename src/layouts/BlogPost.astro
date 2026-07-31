@@ -5,16 +5,50 @@ import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 import ShareButtons from '../components/ShareButtons.astro';
+import FallbackImage from '../assets/og-fallback.png';
+import { SITE_TITLE } from '../consts';
 
 type Props = CollectionEntry<'blog'>['data'];
 
 const { title, description, pubDate, updatedDate, lastFactChecked, heroImage } = Astro.props;
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
+
+// lastFactChecked is required on blog posts and absent on the About page — use it to gate BlogPosting emission.
+const isBlogPost = Boolean(lastFactChecked);
+const schemaImage = new URL((heroImage ?? FallbackImage).src, Astro.site).toString();
+const blogPostingSchema = isBlogPost
+	? {
+			'@context': 'https://schema.org',
+			'@type': 'BlogPosting',
+			mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
+			headline: title,
+			description,
+			image: schemaImage,
+			datePublished: pubDate.toISOString(),
+			dateModified: (updatedDate ?? pubDate).toISOString(),
+			author: {
+				'@type': 'Organization',
+				name: SITE_TITLE,
+				url: Astro.site?.toString(),
+			},
+			publisher: {
+				'@type': 'Organization',
+				name: SITE_TITLE,
+				logo: {
+					'@type': 'ImageObject',
+					url: new URL('/favicon.svg', Astro.site).toString(),
+				},
+			},
+		}
+	: null;
 ---
 
 <html lang="en">
 	<head>
 		<BaseHead title={title} description={description} />
+		{blogPostingSchema && (
+			<script type="application/ld+json" set:html={JSON.stringify(blogPostingSchema)} />
+		)}
 		<style>
 			main {
 				width: calc(100% - 2em);
