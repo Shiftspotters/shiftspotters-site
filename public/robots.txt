@@ -1,0 +1,7 @@
+# Shift Spotters — all crawlers welcome, including AI answer engines.
+# Goal: maximum organic discoverability.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://shiftspotters.com/sitemap-index.xml
