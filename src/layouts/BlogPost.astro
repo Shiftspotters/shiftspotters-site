@@ -36,7 +36,9 @@ const blogPostingSchema = isBlogPost
 				name: SITE_TITLE,
 				logo: {
 					'@type': 'ImageObject',
-					url: new URL('/favicon.svg', Astro.site).toString(),
+					url: new URL('/logo.svg', Astro.site).toString(),
+					width: 400,
+					height: 60,
 				},
 			},
 		}
