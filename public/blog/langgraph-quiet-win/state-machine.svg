@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 320" role="img" aria-labelledby="state-machine-title state-machine-desc">
+  <title id="state-machine-title">A minimal LangGraph StateGraph</title>
+  <desc id="state-machine-desc">Diagram of a LangGraph StateGraph. Five nodes labeled Start, Extract, Decide, Human Approval, and Finish flow left-to-right along the top. A shared state box below connects to every node with dashed lines. One conditional edge branches out of Decide (Decide leads either to Human Approval or loops back to Extract for retry). The Human Approval node is marked as an interrupt point where execution can pause and resume days later.</desc>
+
+  <defs>
+    <marker id="arrow-lg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#4a5568"/>
+    </marker>
+    <marker id="arrow-lg-weak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#a0aec0"/>
+    </marker>
+  </defs>
+
+  <style>
+    .node { fill: #ffffff; stroke: #4a5568; stroke-width: 1.5; }
+    .node-interrupt { fill: #fffaf0; stroke: #2b6cb0; stroke-width: 2; stroke-dasharray: 5,3; }
+    .node-label { font: 13px system-ui, -apple-system, "Segoe UI", sans-serif; fill: #2d3748; text-anchor: middle; dominant-baseline: central; }
+    .node-hint { font: 10px system-ui, -apple-system, "Segoe UI", sans-serif; fill: #2b6cb0; text-anchor: middle; dominant-baseline: central; }
+    .state-box { fill: #f7fafc; stroke: #cbd5e0; stroke-width: 1.5; stroke-dasharray: 4,2; }
+    .state-label { font: 600 12px system-ui, -apple-system, "Segoe UI", sans-serif; fill: #4a5568; text-anchor: middle; dominant-baseline: central; }
+    .state-hint { font: 11px system-ui, -apple-system, "Segoe UI", sans-serif; fill: #718096; text-anchor: middle; dominant-baseline: central; }
+    .edge { stroke: #4a5568; stroke-width: 1.5; fill: none; }
+    .edge-cond { stroke: #4a5568; stroke-width: 1.5; fill: none; stroke-dasharray: 6,3; }
+    .edge-state { stroke: #cbd5e0; stroke-width: 1; fill: none; stroke-dasharray: 2,2; }
+    .edge-label { font: italic 11px system-ui, -apple-system, "Segoe UI", sans-serif; fill: #718096; text-anchor: middle; }
+    .caption { font: italic 12px system-ui, -apple-system, "Segoe UI", sans-serif; fill: #718096; text-anchor: middle; }
+  </style>
+
+  <!-- Top row: 5 nodes flowing left to right -->
+
+  <!-- Start -->
+  <rect class="node" x="30" y="70" width="80" height="36" rx="6"/>
+  <text class="node-label" x="70" y="88">Start</text>
+
+  <!-- Extract -->
+  <rect class="node" x="170" y="70" width="90" height="36" rx="6"/>
+  <text class="node-label" x="215" y="88">Extract</text>
+
+  <!-- Decide -->
+  <rect class="node" x="320" y="70" width="90" height="36" rx="6"/>
+  <text class="node-label" x="365" y="88">Decide</text>
+
+  <!-- Human Approval (interrupt) -->
+  <rect class="node-interrupt" x="470" y="60" width="160" height="56" rx="6"/>
+  <text class="node-label" x="550" y="80">Human Approval</text>
+  <text class="node-hint" x="550" y="100">interrupt — resumes days later</text>
+
+  <!-- Finish -->
+  <rect class="node" x="690" y="70" width="80" height="36" rx="6"/>
+  <text class="node-label" x="730" y="88">Finish</text>
+
+  <!-- Forward edges -->
+  <path class="edge" d="M110,88 L170,88" marker-end="url(#arrow-lg)"/>
+  <path class="edge" d="M260,88 L320,88" marker-end="url(#arrow-lg)"/>
+
+  <!-- Conditional edge Decide -> Human Approval -->
+  <path class="edge-cond" d="M410,88 L470,88" marker-end="url(#arrow-lg)"/>
+  <text class="edge-label" x="440" y="80">if ready</text>
+
+  <!-- Human Approval -> Finish -->
+  <path class="edge" d="M630,88 L690,88" marker-end="url(#arrow-lg)"/>
+
+  <!-- Conditional loopback: Decide -> Extract (retry) -->
+  <path class="edge-cond" d="M365,106 C365,145 215,145 215,106" marker-end="url(#arrow-lg)"/>
+  <text class="edge-label" x="290" y="160">else — loop back and retry</text>
+
+  <!-- Shared state box across the bottom -->
+  <rect class="state-box" x="70" y="210" width="660" height="70" rx="8"/>
+  <text class="state-label" x="400" y="232">Shared state</text>
+  <text class="state-hint" x="400" y="252">typed schema — every node reads it, every node returns updates</text>
+  <text class="state-hint" x="400" y="268">checkpointed per thread → pause and resume</text>
+
+  <!-- Dashed lines from each node down to the state box -->
+  <path class="edge-state" d="M70,106 L70,210"/>
+  <path class="edge-state" d="M215,106 L215,210"/>
+  <path class="edge-state" d="M365,116 L365,210"/>
+  <path class="edge-state" d="M550,116 L550,210"/>
+  <path class="edge-state" d="M730,106 L730,210"/>
+
+  <!-- Caption -->
+  <text class="caption" x="400" y="304">Nodes + edges + shared state — that's the whole vocabulary.</text>
+</svg>
