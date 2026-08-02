@@ -8,6 +8,8 @@
 
 ## Articles (newest first)
 
+- [Ideogram and the Fractured Image-Gen Frontier](https://shiftspotters.com/blog/ideogram-fractured-frontier/): The 2023 prediction was AI image generation would consolidate on one winner. It tri-forked instead — Ideogram for text, Flux 2 for photorealism, Midjourney for artistic style. What the fracture means for picking a tool in 2026. Published 2026-08-02.
+
 - [Deliberately Easy to Leave: The Switching-Cost Shift in AI Tooling](https://shiftspotters.com/blog/switching-cost-shift/): Switching cost has become bimodal in AI tooling: new-generation tools cluster at LOW by design, older tools at HIGH. The moat has moved off the surface layer down to the model layer — and that changes where lock-in actually lives now. Published 2026-07-31.
 
 - [LangGraph and the Agent-Framework Strategy That's Quietly Paying Off](https://shiftspotters.com/blog/langgraph-quiet-win/): By mid-2026, LangGraph is quietly winning enterprise share of the agent-framework race by narrowing what it claims to be — explicit control flow, durable state, honest cost. What that strategy could mean for CrewAI, Microsoft Agent Framework, and the next generation of entrants. Published 2026-07-30.

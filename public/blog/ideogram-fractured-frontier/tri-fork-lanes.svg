@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" role="img" aria-labelledby="tri-fork-title tri-fork-desc">
+  <title id="tri-fork-title">The fractured 2026 AI image-gen frontier</title>
+  <desc id="tri-fork-desc">Three-column diagram showing the three lanes of the fractured 2026 AI image-generation market. Left column PHOTOREALISM anchored by Flux 2 at 2K native output at approximately five to eight cents per image on Replicate, with Google Nano Banana 2 named as a second player in the same lane. Middle column ARTISTIC STYLE anchored by Midjourney V8.2, current default since 2026-07-24, with the aesthetic ceiling holding across the V7 to V8 releases and V8.1 narrowing the text-rendering gap to usable but not closing it. Right column TEXT-HEAVY DESIGN anchored by Ideogram 4 at approximately 95 percent text accuracy per pxz.ai, described as one of the widest reported single-metric leads in the category and held through Midjourney V8's active improvement push. Two smaller adjacencies below the main lanes: rights-cleared enterprise via Adobe Firefly, and chat-bundled distribution via OpenAI GPT-4o and Google Gemini.</desc>
+
+  <style>
+    .lane-label { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; fill: #6b7280; }
+    .anchor-tool { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; font-size: 26px; font-weight: 700; fill: #111827; }
+    .evidence { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; font-size: 13px; fill: #374151; }
+    .secondary { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; font-size: 11px; font-style: italic; fill: #6b7280; }
+    .adjacency-label { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; fill: #9ca3af; }
+    .adjacency-tool { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; font-size: 12px; fill: #6b7280; }
+    .footnote { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; font-size: 11px; font-style: italic; fill: #9ca3af; }
+    .divider { stroke: #e5e7eb; stroke-width: 1; }
+    .heavy-divider { stroke: #d1d5db; stroke-width: 1; }
+  </style>
+
+  <!-- Column 1: PHOTOREALISM -->
+  <g transform="translate(30, 40)">
+    <text class="lane-label" x="0" y="0">Photorealism</text>
+    <text class="anchor-tool" x="0" y="48">Flux 2</text>
+    <text class="evidence" x="0" y="80">2K native</text>
+    <text class="evidence" x="0" y="100">$0.05–0.08 per image on Replicate</text>
+    <text class="secondary" x="0" y="140">Google Nano Banana 2 as second player</text>
+  </g>
+
+  <!-- Divider 1→2 -->
+  <line class="divider" x1="253" y1="30" x2="253" y2="200" />
+
+  <!-- Column 2: ARTISTIC STYLE -->
+  <g transform="translate(283, 40)">
+    <text class="lane-label" x="0" y="0">Artistic style</text>
+    <text class="anchor-tool" x="0" y="48">Midjourney V8.2</text>
+    <text class="evidence" x="0" y="80">Aesthetic ceiling held V7 → V8</text>
+    <text class="evidence" x="0" y="100">V8.1 narrowed text gap to “usable”</text>
+    <text class="secondary" x="0" y="140">— still nowhere near Ideogram</text>
+  </g>
+
+  <!-- Divider 2→3 -->
+  <line class="divider" x1="516" y1="30" x2="516" y2="200" />
+
+  <!-- Column 3: TEXT-HEAVY DESIGN -->
+  <g transform="translate(546, 40)">
+    <text class="lane-label" x="0" y="0">Text-heavy design</text>
+    <text class="anchor-tool" x="0" y="48">Ideogram 4</text>
+    <text class="evidence" x="0" y="80">~95% text accuracy (pxz.ai)</text>
+    <text class="evidence" x="0" y="100">Categorical lead over peers</text>
+    <text class="secondary" x="0" y="140">Held through Midjourney V8's push</text>
+  </g>
+
+  <!-- Adjacency divider -->
+  <line class="heavy-divider" x1="30" y1="240" x2="770" y2="240" />
+
+  <!-- Adjacency footer -->
+  <g transform="translate(30, 270)">
+    <text class="adjacency-label" x="0" y="0">Adjacencies (perpendicular to the tri-fork)</text>
+    <text class="adjacency-tool" x="0" y="26">Rights-cleared enterprise → Adobe Firefly</text>
+    <text class="adjacency-tool" x="0" y="46">Chat-bundled distribution → OpenAI GPT-4o · Google Gemini</text>
+  </g>
+
+  <!-- Footnote -->
+  <text x="30" y="420" class="footnote">The tri-fork holds because different lanes reward different architectural bets,</text>
+  <text x="30" y="438" class="footnote">and use-cases diverged faster than any single model unified them.</text>
+</svg>
