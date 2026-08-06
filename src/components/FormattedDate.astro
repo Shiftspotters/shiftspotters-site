@@ -9,6 +9,10 @@ const { date } = Astro.props;
 <time datetime={date.toISOString()}>
 	{
 		date.toLocaleDateString('en-us', {
+			// Pin to UTC: pubDate values are UTC midnight, so formatting in a
+			// local zone behind UTC renders the previous day. Cloudflare builds
+			// in UTC; this keeps local previews matching production.
+			timeZone: 'UTC',
 			year: 'numeric',
 			month: 'short',
 			day: 'numeric',
