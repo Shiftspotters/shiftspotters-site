@@ -1,0 +1,23 @@
+{
+	// Declares this project as a static-assets deploy so Cloudflare serves the
+	// pre-built ./dist tree directly. No Worker script and no @astrojs/cloudflare
+	// adapter are needed — the site is fully pre-rendered (output: "static", and
+	// astro.config.mjs uses passthroughImageService precisely because there is no
+	// server at runtime).
+	//
+	// Why this file exists: without it, Cloudflare's build auto-injects
+	// @astrojs/cloudflare and installs the LATEST version on every build, since
+	// the adapter appears in neither package.json nor the lockfile. On 2026-08-06
+	// adapter 14.2.0 shipped calling an astro@7.2.0 API while declaring a peer
+	// range of ^7.0.0, which our locked 7.1.5 satisfied on paper but not in fact —
+	// every build failed with MISSING_EXPORT until astro was upgraded. Pinning the
+	// adapter would only freeze that unnecessary dependency; removing it closes the
+	// failure mode for good.
+	//
+	// "name" MUST match the existing Workers service or the deploy lands elsewhere.
+	"name": "shiftspotters-site",
+	"compatibility_date": "2026-08-06",
+	"assets": {
+		"directory": "./dist"
+	}
+}
